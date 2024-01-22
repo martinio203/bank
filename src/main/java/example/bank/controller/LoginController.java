@@ -1,17 +1,17 @@
-package example.bank.Controllers;
+package example.bank.controller;
 
+import example.bank.entity.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LoginController {
     @GetMapping("/login")
-    public String displayLoginPage(){
+    public String loginPage(){
         return "html/login";
     }
 
-    @GetMapping("/register")
-    public String displayRegisterPage(){
-        return "html/register";
-    }
+
 }
