@@ -2,7 +2,7 @@ package example.bank.controller;
 
 import example.bank.dto.UserDto;
 
-import example.bank.service.UserService;
+import example.bank.service.RegisterService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class RegisterController {
 
-    private final UserService userService;
+    @Autowired
+    private  RegisterService registerService;
 
-    public RegisterController(UserService userService) {
-        this.userService = userService;
-    }
 
 
     @GetMapping("/register")
@@ -32,6 +30,6 @@ public class RegisterController {
     public String registerUser(@ModelAttribute("userDto") @Valid UserDto userDto,
                                BindingResult bindingResult,
                                Model model){
-        return userService.registerUser(userDto, bindingResult, model);
+        return registerService.registerUser(userDto, bindingResult, model);
     }
 }

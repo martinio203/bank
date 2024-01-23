@@ -7,7 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.ui.Model;
 
 @Service
-public interface UserService {
+public interface RegisterService {
     void saveUser(UserDto userDto);
     User findByUsername(String username);
 

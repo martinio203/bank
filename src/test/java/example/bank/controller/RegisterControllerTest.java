@@ -1,7 +1,7 @@
 package example.bank.controller;
 
 import example.bank.dto.UserDto;
-import example.bank.service.UserService;
+import example.bank.service.RegisterService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -19,7 +19,7 @@ public class RegisterControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private UserService userService;
+    private RegisterService userService;
 
     @BeforeEach
     void setUp() {

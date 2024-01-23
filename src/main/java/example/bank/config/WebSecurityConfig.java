@@ -13,8 +13,12 @@ public class WebSecurityConfig{
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeRequests()
-                .requestMatchers("/register").permitAll();
+                .authorizeRequests()
+                .antMachers("/login", "/register").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .oauth2Login()
+                .defaultSuccessUrl("/home", true);
         return http.build();
     }
 }

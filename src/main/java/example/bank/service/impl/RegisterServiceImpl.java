@@ -1,12 +1,11 @@
-package example.bank.service;
+package example.bank.service.impl;
 
 import example.bank.dto.UserDto;
 import example.bank.entity.User;
 import example.bank.repository.UserRepository;
+import example.bank.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,14 +13,14 @@ import org.springframework.validation.BindingResult;
 import java.math.BigDecimal;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class RegisterServiceImpl implements RegisterService {
 
 
     @Autowired
     private UserRepository userRepository;
 
 
-    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
 
     @Override
