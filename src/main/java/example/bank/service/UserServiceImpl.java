@@ -4,22 +4,32 @@ import example.bank.dto.UserDto;
 import example.bank.entity.User;
 import example.bank.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
+import java.math.BigDecimal;
+
 @Service
 public class UserServiceImpl implements UserService {
 
+
     @Autowired
     private UserRepository userRepository;
+
+
+    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
 
     @Override
     public void saveUser(UserDto userDto) {
         User user = new User();
         user.setUsername(userDto.getUsername());
-        user.setPassword(userDto.getPassword());
+        user.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
+        user.setBalance(BigDecimal.valueOf(100));
         userRepository.save(user);
     }
 
@@ -33,8 +43,8 @@ public class UserServiceImpl implements UserService {
                              BindingResult bindingResult,
                              Model model){
 
-        User existing = findByUsername(userDto.getUsername());
-        if (existing != null){
+        User userExist = findByUsername(userDto.getUsername());
+        if (userExist != null){
             bindingResult.rejectValue("username", "Username already exists");
             model.addAttribute("usernameError", "Username already exists");
         }

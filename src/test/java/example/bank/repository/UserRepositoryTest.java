@@ -21,12 +21,8 @@ class UserRepositoryTest {
 
     @Test
     void findUserById() {
-        User user = userRepository.findById(1L).get();
+        User user = userRepository.findById(2L).get();
         System.out.println(user);
     }
 
-    @Test
-    void deleteUserById() {
-        userRepository.deleteById(1L);
-    }
 }

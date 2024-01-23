@@ -3,6 +3,8 @@ package example.bank.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -22,5 +24,6 @@ public class User {
     private String password;
 
 
+    private BigDecimal balance;
 
 }
