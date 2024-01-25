@@ -7,7 +7,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Service
 public interface LoginService {
-
     User findByUsername(String username);
     String loginUser(User user, RedirectAttributes redirectAttributes, Model model);
 }

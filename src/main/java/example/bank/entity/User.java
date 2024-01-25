@@ -23,7 +23,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-
     private BigDecimal balance;
+
+    private String role;
 
 }

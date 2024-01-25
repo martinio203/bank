@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class HomeController {
 
     @GetMapping("/home")
-    public String homePage(Model model){
-        model.containsAttribute("username");
+    public String homePage(){
         return "html/home";
     }
 }

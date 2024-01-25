@@ -4,6 +4,7 @@ import example.bank.dto.UserDto;
 
 import example.bank.service.RegisterService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,12 +14,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+@RequiredArgsConstructor
 public class RegisterController {
 
-    @Autowired
-    private  RegisterService registerService;
-
-
+    private final RegisterService registerService;
 
     @GetMapping("/register")
     public String registerPage(Model model){
