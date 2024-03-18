@@ -20,8 +20,7 @@ public class RegisterController {
     private final RegisterService registerService;
 
     @GetMapping("/register")
-    public String registerPage(Model model){
-        model.addAttribute("userDto", new UserDto());
+    public String registerPage(@ModelAttribute("userDto") UserDto userDto){
         return "html/register";
     }
 

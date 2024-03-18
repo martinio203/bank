@@ -9,6 +9,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Service
 public interface LoginService {
     User findByUsername(String username);
-    String loginUser(User user, RedirectAttributes redirectAttributes, BindingResult bindingResult, Model model);
+    String loginUser(User user, BindingResult bindingResult, Model model);
     boolean correctPassword(User user, User userRegistered);
 }

@@ -9,12 +9,10 @@
 <body>
 <div class="login-page">
     <div class="form">
-        <form class="login-form" method="POST" th:action="@{/login}" th:object="${user}">
-            <input type="text" placeholder="username" name="username" th:field="*{username}"/>
-            <input type="password" placeholder="password" name="password" th:field="*{password}"/>
+        <form class="login-form" method="POST" th:action="@{/login}">
+            <input type="text" placeholder="username" name="username"/>
+            <input type="password" placeholder="password" name="password"/>
             <button type="submit">login</button>
-            <p th:if="${usernameError}">a</p>
-            <p th:if="${passwordError}">b</p>
             <p class="message">Not registered? <a href="/register">Create an account</a></p>
         </form>
     </div>

@@ -6,10 +6,10 @@
     <title>Title</title>
 </head>
 <body>
-    <form method="POST" th:action="@{/register}" th:object="${userDto}">
-        <input type="text" placeholder="username" name="username" th:field="*{username}"/>
-        <input type="password" placeholder="password" name="password" th:field="*{password}"/>
-        <input type="password" placeholder="confirm password" name="confirmPassword" th:field="*{confirmPassword}"/>
+    <form method="POST" th:action="@{/register}">
+        <input type="text" placeholder="username" name="username" />
+        <input type="password" placeholder="password" name="password" />
+        <input type="password" placeholder="confirm password" name="confirmPassword"/>
         <button type="submit">register</button>
         <p th:if="${usernameError}" class="userError">User already exists</p>
         <p th:if="${passwordError}" class="passwordErros">Password do not match</p>
