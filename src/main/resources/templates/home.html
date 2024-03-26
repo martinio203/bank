@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Bank</title>
+</head>
+<body>
+<header>
+    <h1>Hello, <span th:text="${user.getUsername()}"></span></h1>
+    <a class="logout" href="#" th:href="@{/logout}"><span>Logout</span></a>
+</header>
+<div class="container">
+    <h2>Account Balance</h2>
+    <p>Current Balance: $<span th:text="${user.getBalance()}"></span></p>
+    <h2>Transaction History</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Recipient</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        </tr>
+        </tbody>
+    </table>
+    <h2><a th:href="@{/transfer}">Make a transfer</a></h2>
+</div>
+</body>
+</html>

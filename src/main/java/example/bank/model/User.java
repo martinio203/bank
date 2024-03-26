@@ -1,9 +1,10 @@
-package example.bank.entity;
+package example.bank.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,6 +26,10 @@ public class User {
 
     private BigDecimal balance;
 
+    @Column(nullable = false)
     private String role;
+
+    @OneToMany(mappedBy = "payer_id")
+    private List<Transfer> transfer;
 
 }

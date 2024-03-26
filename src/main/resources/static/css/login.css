@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+.container header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.container form label {
+    display: block;
+    margin-bottom: 5px;
+}
+.container form input[type="text"],
+.container form input[type="password"],
+.container form input[type="submit"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.container form input[type="submit"] {
+    background-color: #1e90ff;
+    color: white;
+    cursor: pointer;
+}
+.container form input[type="submit"]:hover {
+    background-color: #007bff;
+}

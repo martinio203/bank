@@ -1,23 +1,24 @@
-package example.bank;
+package example.bank.service.impl;
 
-import example.bank.entity.User;
+import example.bank.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 
-public class CustomUserDetails implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
 
-    private User user;
+    private final User user;
 
-    public CustomUserDetails(User user){
+    public UserDetailsImpl(User user){
         this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(() -> user.getRole());
+        return List.of(user::getRole);
     }
 
 
@@ -29,6 +30,10 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public String getUsername() {
         return user.getUsername();
+    }
+
+    public BigDecimal getBalance() {
+        return user.getBalance();
     }
 
     @Override

@@ -1,12 +1,10 @@
 package example.bank.service.impl;
 
 import example.bank.dto.UserDto;
-import example.bank.entity.User;
+import example.bank.model.User;
 import example.bank.repository.UserRepository;
 import example.bank.service.RegisterService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -27,7 +25,7 @@ public class RegisterServiceImpl implements RegisterService {
         User user = new User();
         user.setUsername(userDto.getUsername());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        user.setBalance(BigDecimal.valueOf(100));
+        user.setBalance(new BigDecimal("100"));
         user.setRole("USER");
         userRepository.save(user);
     }
